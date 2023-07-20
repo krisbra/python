@@ -312,3 +312,11 @@ for i in range(6):
 
 for i in range(10,51,2):
     print(i, end=',')
+###PETLA WHILE 20.06.2023
+
+liczby = list () #[]
+i = 2
+while i < 11:
+    liczby.append(i)
+    i += 2  #i = i + 2
+print(liczby)  #[2, 4, 6, 8, 10]

@@ -564,3 +564,150 @@ x = np.array([1, 2, 3, 4])
 print(2 ** x)
 #wynik użyliśmy potęgowania żeby
 # [ 2  4  8 16]
+
+#TODO Cwiczenie 1.A. Stwórz tablicę 3x3 zawierającą liczby od 0 do 16 w odstępie równym 2.
+x = np.array(list(range(0,17,2)))
+y = x.reshape((3,3))
+print(y)
+#wynik
+# [[ 0  2  4]
+#  [ 6  8 10]
+#  [12 14 16]]
+
+#alternatywne rozwiazanie
+z = np.array(np.arange(0,17,2)).reshape(3,3)
+print(z)
+#wynik
+# [[ 0  2  4]
+#  [ 6  8 10]
+#  [12 14 16]]
+
+#TODO Cwiczenie 1.B. Stwórz macierz zer o wymiarach 5x5. Wygeneruj jedną losową liczbę korzystając z numpy i przypisz ją do zmiennej. Następnie cały pierwszy wiersz zamień na tę liczbę.
+a = np.zeros((5,5))
+print(a)
+#wynik
+# [[0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]]
+
+x = np.random.randint(0,5,1)
+print(x)
+#wynik [1]
+a[0] = x
+print(a)
+#wynik
+# [[1. 1. 1. 1. 1.]
+#  [0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]]
+
+#TODO Cwiczenie 1.C. Odtwórz poniższą macierz
+
+x = np.arange(0.01,1.01,0.01).reshape(10,10)
+print(x)
+#wynik
+# [[0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.1 ]
+#  [0.11 0.12 0.13 0.14 0.15 0.16 0.17 0.18 0.19 0.2 ]
+#  [0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.3 ]
+#  [0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.4 ]
+#  [0.41 0.42 0.43 0.44 0.45 0.46 0.47 0.48 0.49 0.5 ]
+#  [0.51 0.52 0.53 0.54 0.55 0.56 0.57 0.58 0.59 0.6 ]
+#  [0.61 0.62 0.63 0.64 0.65 0.66 0.67 0.68 0.69 0.7 ]
+#  [0.71 0.72 0.73 0.74 0.75 0.76 0.77 0.78 0.79 0.8 ]
+#  [0.81 0.82 0.83 0.84 0.85 0.86 0.87 0.88 0.89 0.9 ]
+#  [0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99 1.  ]]
+#
+#alternatywne rozwiazanie
+float_formatter = "{:.2f}".format
+np.set_printoptions(formatter={'float_kind':float_formatter}) #formating float in nampy area
+print(np.linspace(0.01,1.00,100).reshape(10,10))
+#wynik
+# [[0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10]
+#  [0.11 0.12 0.13 0.14 0.15 0.16 0.17 0.18 0.19 0.20]
+#  [0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.30]
+#  [0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.40]
+#  [0.41 0.42 0.43 0.44 0.45 0.46 0.47 0.48 0.49 0.50]
+#  [0.51 0.52 0.53 0.54 0.55 0.56 0.57 0.58 0.59 0.60]
+#  [0.61 0.62 0.63 0.64 0.65 0.66 0.67 0.68 0.69 0.70]
+#  [0.71 0.72 0.73 0.74 0.75 0.76 0.77 0.78 0.79 0.80]
+#  [0.81 0.82 0.83 0.84 0.85 0.86 0.87 0.88 0.89 0.90]
+#  [0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99 1.00]]
+#mamy zera w 1
+
+#TODO 2a Z podanej macierzy utwórz macież podaną niżej korzystając z slicingu
+
+mat = np.arange(1,26).reshape(5,5)
+print(mat)
+#wynik
+# [[ 1  2  3  4  5]
+#  [ 6  7  8  9 10]
+#  [11 12 13 14 15]
+#  [16 17 18 19 20]
+#  [21 22 23 24 25]]
+
+aa=mat[2:, 1:]
+print(aa)
+#wynik
+# [[12 13 14 15]
+#  [17 18 19 20]
+#  [22 23 24 25]]
+
+bb = mat[3,4]
+print(bb)
+#wynik 20
+cc = mat[0:3,1:2]
+print(cc)
+#wynik
+# [[ 2]
+#  [ 7]
+#  [12]]
+
+#TODO Cwiczenie 3.A. Korzystając z macierzy mat (z poprzedniej części zajęć), policz odpowiednio:
+# Sumę wszystkich elementów;
+# Odhylenie standardowe;
+# Sumę wartości we wszystkich kolumnach;
+
+mat = np.arange(1,26).reshape(5,5)
+print(mat)
+print(mat.sum()) #suma całości
+#wynik 325
+print(round(np.std(mat),2))
+#wynik 7.21
+
+print(mat.sum(axis=0)) #suma kolumn
+# wynik [55 60 65 70 75]
+
+#TODO Stwórz dwie jedynowymiarowe tablice zawierające 10 losowych liczb od 0 do 10. Połącz obie tablice i wylicz z nich średnią.
+# Jaka będzie średnia dla większej próbki? Stwórz pętle, która policzy średnią dla tablicy o 10, 100, 1 000, 10 000, 100 000 liczb.
+
+x = np.random.randint(0, 10, 10)
+y = np.random.randint(10, size=(10))
+print(x)
+#wynik [7 3 4 5 0 0 8 2 5 5]
+print(y)
+#wynik [4 0 0 1 8 7 0 0 6 6]
+z = np.concatenate((x,y))
+print(z)
+#wynik [7 3 4 5 0 0 8 2 5 5 4 0 0 1 8 7 0 0 6 6]
+print(z.mean())
+#wynik 3.55
+size = 10
+for i in range(5):
+    x = np.random.randint(0, 10, 10)
+    y = np.random.randint(10, size=(10))
+    z = np.concatenate((x, y))
+    print(f'Średnia dla tablicy o rozmiarze {size}: {z.mean()}')
+    size *= 10
+
+#wynik
+# Średnia dla tablicy o rozmiarze 10: 3.85
+# Średnia dla tablicy o rozmiarze 100: 3.7
+# Średnia dla tablicy o rozmiarze 1000: 3.0
+# Średnia dla tablicy o rozmiarze 10000: 3.8
+# Średnia dla tablicy o rozmiarze 100000: 3.95
+
+
+
